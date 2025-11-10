@@ -123,7 +123,7 @@ Database	MongoDB + Mongoose
 Authentication	JSON Web Token (JWT), bcryptjs
 Utilities	dotenv, CORS, nodemon 
 
-fullstack-auth-app/
+-IFSD-Project-Study-planner--main/
 │
 ├── backend/
 │   ├── config/
