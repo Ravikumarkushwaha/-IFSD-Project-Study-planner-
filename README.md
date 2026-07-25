@@ -1,129 +1,147 @@
-🎓 Study Planner – Project Overview
-💡 Concept
+# Study Planner
 
-The Study Planner is a MERN stack application that helps users plan, schedule, and manage their study tasks efficiently.
-It’s a full-stack web app that includes authentication (login/signup), JWT-based security, and a task management dashboard.
+## Project Overview
 
-⚙️ Main Functionalities Implemented
-🔐 Authentication System (Frontend + Backend)
+The **Study Planner** is a full-stack MERN (MongoDB, Express.js, React, Node.js) application that helps users efficiently organize, schedule, and manage their study tasks. The application features secure user authentication, JWT-based authorization, and a responsive task management dashboard for tracking study progress.
 
-✅ User Signup
+---
 
-Users can register with their name, email, and password.
+## Objectives
 
-Passwords are hashed using bcryptjs before saving to MongoDB.
+- Develop a secure full-stack task management application.
+- Implement user authentication using JWT.
+- Allow users to create, manage, and organize study tasks.
+- Provide a responsive and user-friendly interface.
+- Demonstrate CRUD operations using the MERN stack.
 
-On registration, a JWT token is generated and returned.
+---
 
-✅ User Login
+## Technologies Used
 
-Users can log in using email & password.
+| Category | Technologies |
+|----------|--------------|
+| Frontend | React (Vite), Axios |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JSON Web Token (JWT), bcryptjs |
+| Utilities | dotenv, CORS, nodemon |
 
-A valid token is generated on success.
+---
 
-Token allows access to protected routes (like the Dashboard).
+## Features
 
-✅ Protected Routes (Frontend)
+### Authentication System
 
-The Dashboard page is accessible only after login.
+The application provides a secure authentication system with the following features:
 
-Used ProtectedRoute.jsx to verify token authentication.
+#### User Registration
 
-✅ Persistent Login
+- Register using Name, Email, and Password.
+- Passwords are securely hashed using **bcryptjs** before storing in MongoDB.
+- JWT token is generated after successful registration.
 
-User info and token are stored in localStorage.
+#### User Login
 
-Auto-redirect to Dashboard if already logged in.
+- Login using Email and Password.
+- Generates a secure JWT token upon successful authentication.
+- Allows access to protected routes.
 
-📅 Task Management Dashboard
+#### Protected Routes
 
-✅ Add New Tasks
+- Dashboard is accessible only to authenticated users.
+- Implemented using `ProtectedRoute.jsx`.
 
-Each task includes:
+#### Persistent Login
 
-Title
+- User information and JWT token are stored in `localStorage`.
+- Automatically redirects authenticated users to the Dashboard.
 
-Description
+---
 
-Deadline (Date)
+## Task Management Dashboard
 
-✅ View All Tasks
+### Add New Tasks
 
-Displays all tasks from MongoDB using API calls (/api/tasks).
+Users can create study tasks with:
 
-✅ Update Task Status
+- Title
+- Description
+- Deadline
 
-Users can mark a task as completed or undo it.
+### View Tasks
 
-Changes are reflected instantly (via PUT API).
+- Displays all tasks stored in MongoDB.
+- Retrieves tasks through REST APIs.
 
-✅ Delete Tasks
+### Update Task Status
 
-Users can delete unwanted tasks with a single click.
+- Mark tasks as Completed.
+- Undo completed tasks.
+- Updates are reflected instantly using PUT requests.
 
-✅ Fully Responsive UI
+### Delete Tasks
 
-Centered dashboard with gradient backgrounds.
+- Remove unwanted tasks with a single click.
 
-White task container for better readability.
+### Responsive User Interface
 
-Consistent modern styling using inline CSS.
+- Modern responsive design.
+- Gradient background.
+- Clean white task cards.
+- Consistent styling throughout the application.
 
-🧠 Frontend (Vite + React)
+---
 
-Built using Vite (React 18) for fast development.
+## Frontend
 
-Includes pages:
+The frontend is developed using **React (Vite)** and includes the following components:
 
-Home.jsx → Landing page (Login / Signup links)
+- **Home.jsx** – Landing page
+- **Login.jsx** – User login page
+- **Signup.jsx** – User registration page
+- **Dashboard.jsx** – Task management dashboard
+- **AuthContext.jsx** – Global authentication state management
+- **ProtectedRoute.jsx** – Route protection using JWT
+- **api.js** – Centralized Axios API service
 
-Login.jsx → User authentication form
+---
 
-Signup.jsx → New user registration form
+## Backend
 
-Dashboard.jsx → Main task management page
+The backend is built using **Node.js**, **Express.js**, and **MongoDB**.
 
-AuthContext.jsx → Manages user state & JWT token globally.
+It includes:
 
-ProtectedRoute.jsx → Ensures authentication before dashboard access.
+- **authRoutes.js** – User registration and login APIs
+- **taskRoutes.js** – Task CRUD APIs
+- **authMiddleware.js** – JWT authentication middleware
+- **generateToken.js** – Generates 7-day JWT tokens
+- **User.js** – User model
+- **Task.js** – Task model
+- **db.js** – MongoDB connection
+- **server.js** – Express server configuration
 
-api.js → Centralized Axios API service for backend requests.
+User credentials and task data are securely stored in **MongoDB Atlas**.
 
-⚙️ Backend (Node.js + Express + MongoDB)
+---
 
-authRoutes.js – Handles /register and /login
+## API Endpoints
 
-taskRoutes.js – Handles /tasks CRUD APIs
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Login and receive JWT token |
+| GET | `/api/tasks` | Retrieve all tasks (Protected) |
+| POST | `/api/tasks` | Create a new task |
+| PUT | `/api/tasks/:id` | Update task status |
+| DELETE | `/api/tasks/:id` | Delete a task |
 
-authMiddleware.js – Verifies JWT for protected routes
+---
 
-generateToken.js – Generates 7-day valid tokens
+## Project Structure
 
-User.js & Task.js – Mongoose models
-
-db.js – MongoDB connection using Mongoose
-
-server.js – Express server setup with routes & CORS
-
-Securely stores user credentials and task data in MongoDB Atlas.
-
-🧾 Backend API Summary
-Method	Endpoint	Description
-POST	/api/auth/register	Register a new user
-POST	/api/auth/login	Login user & get token
-GET	/api/tasks	Get all tasks (protected)
-POST	/api/tasks	Add new task
-PUT	/api/tasks/:id	Mark task complete/undo
-DELETE	/api/tasks/:id	Delete task
-🧩 Technologies Used
-Category	Tools/Frameworks
-Frontend	React (Vite), Axios
-Backend	Node.js, Express.js
-Database	MongoDB + Mongoose
-Authentication	JSON Web Token (JWT), bcryptjs
-Utilities	dotenv, CORS, nodemon 
-
--IFSD-Project-Study-planner--main/
+```text
+IFSD-Project-Study-planner--main/
 │
 ├── backend/
 │   ├── config/
@@ -149,7 +167,7 @@ Utilities	dotenv, CORS, nodemon
 └── frontend/
     ├── public/
     │   └── vite.svg
-    ├── index.html        
+    ├── index.html
     ├── src/
     │   ├── components/
     │   │   └── ProtectedRoute.jsx
@@ -170,23 +188,70 @@ Utilities	dotenv, CORS, nodemon
     ├── package.json
     ├── package-lock.json
     └── README.md
+```
 
+---
 
-🧱 Setup & Run Commands
-# Step 1: Run Backend
+## Installation and Setup
+
+### Prerequisites
+
+- Node.js
+- MongoDB Atlas (or Local MongoDB)
+- npm
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/IFSD-Project-Study-planner--main.git
+```
+
+### Backend Setup
+
+```bash
 cd backend
 npm install
 npm run dev
+```
 
-# Step 2: Run Frontend
-cd ../frontend
+### Frontend Setup
+
+```bash
+cd frontend
 npm install
 npm run dev
+```
 
-➡️ Then open your browser at http://localhost:5174
+Open your browser and navigate to:
 
-👨‍💻 Author
-Ravi
-Email: Ravins1956@gmail.com
+```
+http://localhost:5174
+```
 
-🔗 GitHub: https://github.com/Ravikumarkushwaha 
+---
+
+## Expected Outcome
+
+- Secure user authentication using JWT.
+- Responsive and intuitive study planner dashboard.
+- Full CRUD functionality for task management.
+- Persistent user sessions.
+- Secure storage of user and task data in MongoDB Atlas.
+
+---
+
+## Future Enhancements
+
+- Task categories and labels.
+- Study progress analytics.
+- Calendar integration.
+- Reminder and notification system.
+- Dark mode support.
+- Profile management.
+- Search and filter tasks.
+
+---
+
+## Author
+
+**Ravi Kumar Kushwaha**
